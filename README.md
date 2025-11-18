@@ -1,2 +1,2 @@
 # DAT511-Group-Project
-Group Project: Data Cleaning and Tidy Data Preparation
+Data Cleaning and Tidy Data Preparation

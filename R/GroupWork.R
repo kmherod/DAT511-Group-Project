@@ -1,34 +1,49 @@
-# Merge Training and Test Data #
+# Libraries
+library(stringr)
+install.packages("dplyr")
+library(dplyr)
+### UCI HAR Dataset
+# Set Working Directory
+# Can change this to your own
+setwd("/Users/payplu/Downloads")
+#1 - Merging Training and Test Data
 
-install.packages("tidyverse")
-library(tidyverse)
+# set the path
+path <- "UCI HAR Dataset"
 
-setwd("C:/Users/kelse/OneDrive/Documents/DAT511/Group Project/DAT511-Group-Project/UCI HAR Dataset")
+# Log training & Testing Data
+train_x <- read.table(file.path(path, "train", "X_train.txt")) # measurement
+train_y <- read.table(file.path(path, "train", "y_train.txt")) # Activity
+train_subject <- read.table(file.path(path, "train", "subject_train.txt")) # Subjects
 
+test_x <- read.table(file.path(path, "test", "X_test.txt"))
+test_y <- read.table(file.path(path, "test", "y_test.txt"))
+test_subject <- read.table(file.path(path, "test", "subject_test.txt"))
 
+# Read in features & activity labels
+# Features + activity labels
+features <- read.table(file.path(path, "features.txt"))
+activity_labels <- read.table(file.path(path, "activity_labels.txt"))
 
-# Determine how .text files are structured (space separated)
+# Combine the rows (use rbind for combining rows)
+# Tried bind_rows w/ dplyr - not sure why it didn't work the same
+X_rows <- rbind(train_x, test_x)
+Y_rows <- rbind(train_y, test_y)
+subjects <- rbind(train_subject, test_subject)
 
-sample <- read_delim("X_test.txt", delim = NULL, n_max = 10)
-sample
+# Create Column names
+colnames(X_rows) <- features$V2 # select the second column - vector
+colnames(Y_rows) <- "Activities"
+colnames(subjects) <- "Subjects"
 
+# Merge the dataset into one
+merged_data <- cbind(subjects, Y_rows, X_rows)
 
+#2
+# Finding the mean and Std dev. (Use columns with mean & std) 
+# (str_which will find the column with contained mean & std dev.)
+measurements <- str_which(features$V2, "mean\\(\\)|std\\(\\)")
 
-# Read in files
-
-
-subject_test  <- read_table("subject_test.txt", col_names = "subject_test")
-subject_train <- read_table("subject_train.txt", col_names = "subject_train")
-
-
-y_test  <- read_table("y_test.txt", col_names = "y_test")
-y_train <- read_table("y_train.txt", col_names = "y_train")
-
-
-X_test  <- read_table("X_test.txt", col_names = "x_test")
-X_train <- read_table("X_train.txt", col_names = "x-train")
-
-
-
-
+# First two columns of the measurements are subjects and activities 
+cleaned_data <- merged_data[, c(1,2,measurements + 2)]
 

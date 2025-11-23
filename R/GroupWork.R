@@ -5,10 +5,11 @@
 
 # LIBRARIES
 library(stringr)
-install.packages("dplyr")
+#install.packages("dplyr")
 library(dplyr)
 
 # SET WORKING DIRECTORY
+# Set your working directory to where you extracted the UCI HAR Dataset
 # setwd("/Users/payplu/Downloads")
 # setwd("C:/Users/kelse/OneDrive/Documents/DAT511/R/UCI HAR Dataset/UCI HAR Dataset")
 
@@ -108,6 +109,8 @@ tidy_data <- cleaned_data %>%
 
 # 6 SAVE THE TIDY DATA
 
-write.table(tidy_data, "tidy_data.txt", row.names = FALSE)
+# Create txt file without row names
+write.table(tidy_data, "tidy_dataset.txt", row.names = FALSE)
 
-list.files(pattern = "tidy_data.txt")
+
+

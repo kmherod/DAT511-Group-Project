@@ -9,14 +9,11 @@ library(dplyr)
 # Can change this to your own
 #setwd("/Users/payplu/Downloads")
 #setwd("C:/Users/kelse/OneDrive/Documents/DAT511/R/UCI HAR Dataset/UCI HAR Dataset")
-
 # Set the path
 #path <- "UCI HAR Dataset"
 
 
-
 #1 Merging Training and Test Data
-
 
 train_x       <- read.table("train/X_train.txt")        # measurements
 train_y       <- read.table("train/y_train.txt")        # activity labels

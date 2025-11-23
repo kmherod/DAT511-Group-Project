@@ -6,26 +6,22 @@ author: "Chrinovic Mukulu, Kelsey Herod, Plu Reh"
 date: "2025-11-23"
 output: pdf_document
 ---
-**Teams members**
-- Chirnovic Mukulu
-- Kelsey Herod
-- Plu Reh
 
-**Github Repository** 
-  - https://github.com/kmherod/DAT511-Group-Project.git
-1.Project Overview 
-This Project used the "Human Activity Recognition Using Smartphones" dataset.
-In this study, volunteers performed different activities while wearing a sensor.
-the raw sensor data processed in a set shown over this data.
+How to download and extract the dataset
+
+DATASET: Human Activity Recognition Using Smartphones
+Source: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+Download: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+1. Copy and paste the source link into your web browser to access the dataset. The link will lead you
+directly to the UC Irvine Machine Learning Repository web page for the Human Activity Recognition database.
+
+2. At the top of the page click the blue download button.
+
+3. Find the downloaded dataset by going to where your downloads are usually stored.
+
+4. Right click on the zipped file and select "Extract All..." to utilize its contents
 
 
-Our goal in this project is to:
 
-1. Merge the training and test dataset into one dataset.
-2. Extract the measurement
-3. Use descriptive activity names.
-4.Label all variable with clear, descriptive names.
-5. Create a second, "tidy" dataset with the average for each activity ad each subjects.
-
-The final tidy data set is saved in this project under tidy dataset
 

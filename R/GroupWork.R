@@ -58,18 +58,21 @@ cleaned_data <- merged_data[, c(1,2,measurements + 2)]
 
 # 3 DESCRIPTIVE ACTIVITY NAMES
 
-# Create a vector in order of associated activity numbers (1-6)
-activity_names <- c(
-  "WALKING",
-  "WALKING_UPSTAIRS",
-  "WALKING_DOWNSTAIRS",
-  "SITTING",
-  "STANDING",
-  "LAYING"
-)
+# Rename columns of activity_labels data
+colnames(activity_labels) <- c("Activities", "ActivityLabel")
 
-#Replace activity number with associated activity name
-cleaned_data$Activities <- activity_names[cleaned_data$Activities]
+# Merge data sets by referencing shared Activities column
+cleaned_data <- merge(cleaned_data, activity_labels, by = "Activities", all.x = TRUE)
+
+# Replace activity number with associated activity name
+cleaned_data$Activities    <- cleaned_data$ActivityLabel
+cleaned_data$ActivityLabel <- NULL
+
+# Reorder Subjects and Activities columns
+
+col_order <- c("Subjects","Activities", setdiff(names(cleaned_data), c("Subjects", "Activities")))
+
+cleaned_data <- cleaned_data[, col_order]
 
 
 # 4 LABEL DATA WITH DESCRIPTIVE NAMES
@@ -103,3 +106,9 @@ tidy_data <- cleaned_data %>%
     .groups = "drop"
   )
 
+
+# 6 SAVE THE TIDY DATA
+
+write.table(tidy_data, "tidy_data.txt", row.names = FALSE)
+
+list.files(pattern = "tidy_data.txt")

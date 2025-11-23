@@ -67,4 +67,18 @@ cleaned_data$Activities <- activity_names[cleaned_data$Activities]
 
 
 # 4 Label Data with Descriptive Names
-#testing#
+
+# Replace t with Time and f with Frequency
+names(cleaned_data) <- gsub("^t", "Time",      names(cleaned_data))
+names(cleaned_data) <- gsub("^f", "Frequency", names(cleaned_data))
+
+# Abbreviated to full names for measurement types
+names(cleaned_data) <- gsub("Acc",  "Acceleration", names(cleaned_data))
+names(cleaned_data) <- gsub("Gyro", "Gyroscope",    names(cleaned_data))
+names(cleaned_data) <- gsub("Mag",  "Magnitude",    names(cleaned_data))
+names(cleaned_data) <- gsub("BodyBody", "Body",     names(cleaned_data))
+
+# Remove extra symbols
+names(cleaned_data) <- gsub("-mean\\(\\)", "Mean", names(cleaned_data))
+names(cleaned_data) <- gsub("-std\\(\\)",  "STD",  names(cleaned_data))
+names(cleaned_data) <- gsub("[()\\-]", "", names(cleaned_data))

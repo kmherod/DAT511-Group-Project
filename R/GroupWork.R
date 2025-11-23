@@ -1,48 +1,53 @@
-# Libraries
+##############################
+# DAT 511 – Group Project - UCI HAR Dataset
+# Data Cleaning and Tidy Data Preparation Script
+##############################
+
+# LIBRARIES
 library(stringr)
-#install.packages("dplyr")
+install.packages("dplyr")
 library(dplyr)
 
+# SET WORKING DIRECTORY
+# setwd("/Users/payplu/Downloads")
+# setwd("C:/Users/kelse/OneDrive/Documents/DAT511/R/UCI HAR Dataset/UCI HAR Dataset")
 
-### UCI HAR Dataset
-# Set Working Directory
-# Can change this to your own
-#setwd("/Users/payplu/Downloads")
-#setwd("C:/Users/kelse/OneDrive/Documents/DAT511/R/UCI HAR Dataset/UCI HAR Dataset")
-# Set the path
-#path <- "UCI HAR Dataset"
+# SET THE PATH
+# path <- "UCI HAR Dataset"
 
 
-#1 Merging Training and Test Data
+#1 MERGING TRAINING AND TEST DATA
 
+# Training data
 train_x       <- read.table("train/X_train.txt")        # measurements
-train_y       <- read.table("train/y_train.txt")        # activity labels
+train_y       <- read.table("train/y_train.txt")        # activity labels (1-6)
 train_subject <- read.table("train/subject_train.txt")  # subject IDs
 
-# TEST
+# Test data
 test_x       <- read.table("test/X_test.txt")
 test_y       <- read.table("test/y_test.txt")
 test_subject <- read.table("test/subject_test.txt")
 
-# FEATURES & LABELS
-features        <- read.table("features.txt")
-activity_labels <- read.table("activity_labels.txt")
+# Features and Activity Labels
+features        <- read.table("features.txt")          # variable names
+activity_labels <- read.table("activity_labels.txt")   # actiivty names
 
-# Combine the rows (use rbind for combining rows)
-# Tried bind_rows w/ dplyr - not sure why it didn't work the same
-X_rows <- rbind(train_x, test_x)
+# Combine Rows
+X_rows <- rbind(train_x, test_x) # use rbind for combining rows
 Y_rows <- rbind(train_y, test_y)
 subjects <- rbind(train_subject, test_subject)
 
-# Create Column names
+# Create Column Names
 colnames(X_rows) <- features$V2 # select the second column - vector
 colnames(Y_rows) <- "Activities"
 colnames(subjects) <- "Subjects"
 
-# Merge the dataset into one
+# Combine Dataset
 merged_data <- cbind(subjects, Y_rows, X_rows)
 
-# 2 Extract Relevant Measurements
+
+# 2 EXTRACT RELEVANT MEASURES
+
 # Finding the mean and Std dev. (Use columns with mean & std) 
 # (str_which will find the column with contained mean & std dev.)
 measurements <- str_which(features$V2, "mean\\(\\)|std\\(\\)")
@@ -51,8 +56,9 @@ measurements <- str_which(features$V2, "mean\\(\\)|std\\(\\)")
 cleaned_data <- merged_data[, c(1,2,measurements + 2)]
 
 
-# 3 Descriptive Activity Names
-# Create a vector in order of associated activity numbers
+# 3 DESCRIPTIVE ACTIVITY NAMES
+
+# Create a vector in order of associated activity numbers (1-6)
 activity_names <- c(
   "WALKING",
   "WALKING_UPSTAIRS",
@@ -66,13 +72,13 @@ activity_names <- c(
 cleaned_data$Activities <- activity_names[cleaned_data$Activities]
 
 
-# 4 Label Data with Descriptive Names
+# 4 LABEL DATA WITH DESCRIPTIVE NAMES
 
 # Replace t with Time and f with Frequency
 names(cleaned_data) <- gsub("^t", "Time",      names(cleaned_data))
 names(cleaned_data) <- gsub("^f", "Frequency", names(cleaned_data))
 
-# Abbreviated to full names for measurement types
+# Transform abbreviated to full names for measurement types
 names(cleaned_data) <- gsub("Acc",  "Acceleration", names(cleaned_data))
 names(cleaned_data) <- gsub("Gyro", "Gyroscope",    names(cleaned_data))
 names(cleaned_data) <- gsub("Mag",  "Magnitude",    names(cleaned_data))
@@ -84,7 +90,7 @@ names(cleaned_data) <- gsub("-std\\(\\)",  "STD",  names(cleaned_data))
 names(cleaned_data) <- gsub("[()\\-]", "", names(cleaned_data))
 
 
-# Create Tidy Data
+# 5 CREATE TIDY DATA
 
 # Use the cleaned_data data frame to create Tidy Data
 # Get average of each variable for each activity and each subject.

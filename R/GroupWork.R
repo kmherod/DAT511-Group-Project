@@ -5,25 +5,28 @@ library(dplyr)
 ### UCI HAR Dataset
 # Set Working Directory
 # Can change this to your own
-setwd("/Users/payplu/Downloads")
-#1 - Merging Training and Test Data
+#setwd("/Users/payplu/Downloads")
+#setwd("C:/Users/kelse/OneDrive/Documents/DAT511/R/UCI HAR Dataset/UCI HAR Dataset")
+
+
+
+#1 Merging Training and Test Data
 
 # set the path
-path <- "UCI HAR Dataset"
+#path <- "UCI HAR Dataset"
 
-# Log training & Testing Data
-train_x <- read.table(file.path(path, "train", "X_train.txt")) # measurement
-train_y <- read.table(file.path(path, "train", "y_train.txt")) # Activity
-train_subject <- read.table(file.path(path, "train", "subject_train.txt")) # Subjects
+train_x       <- read.table("train/X_train.txt")        # measurements
+train_y       <- read.table("train/y_train.txt")        # activity labels
+train_subject <- read.table("train/subject_train.txt")  # subject IDs
 
-test_x <- read.table(file.path(path, "test", "X_test.txt"))
-test_y <- read.table(file.path(path, "test", "y_test.txt"))
-test_subject <- read.table(file.path(path, "test", "subject_test.txt"))
+# TEST
+test_x       <- read.table("test/X_test.txt")
+test_y       <- read.table("test/y_test.txt")
+test_subject <- read.table("test/subject_test.txt")
 
-# Read in features & activity labels
-# Features + activity labels
-features <- read.table(file.path(path, "features.txt"))
-activity_labels <- read.table(file.path(path, "activity_labels.txt"))
+# FEATURES & LABELS
+features        <- read.table("features.txt")
+activity_labels <- read.table("activity_labels.txt")
 
 # Combine the rows (use rbind for combining rows)
 # Tried bind_rows w/ dplyr - not sure why it didn't work the same
@@ -39,11 +42,29 @@ colnames(subjects) <- "Subjects"
 # Merge the dataset into one
 merged_data <- cbind(subjects, Y_rows, X_rows)
 
-#2
+# 2 Extract Relevant Measurements
 # Finding the mean and Std dev. (Use columns with mean & std) 
 # (str_which will find the column with contained mean & std dev.)
 measurements <- str_which(features$V2, "mean\\(\\)|std\\(\\)")
 
 # First two columns of the measurements are subjects and activities 
 cleaned_data <- merged_data[, c(1,2,measurements + 2)]
+
+
+# 3 Descriptive Activity Names
+# Create a vector in order of associated activity numbers
+activity_names <- c(
+  "WALKING",
+  "WALKING_UPSTAIRS",
+  "WALKING_DOWNSTAIRS",
+  "SITTING",
+  "STANDING",
+  "LAYING"
+)
+
+#Replace activity number with associated activity name
+cleaned_data$Activities <- activity_names[cleaned_data$Activities]
+
+
+# 4 Label Data with Descriptive Names
 

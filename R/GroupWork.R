@@ -69,7 +69,6 @@ cleaned_data$Activities    <- cleaned_data$ActivityLabel
 cleaned_data$ActivityLabel <- NULL
 
 # Reorder Subjects and Activities columns
-
 col_order <- c("Subjects","Activities", setdiff(names(cleaned_data), c("Subjects", "Activities")))
 
 cleaned_data <- cleaned_data[, col_order]

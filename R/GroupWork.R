@@ -1,19 +1,22 @@
 # Libraries
 library(stringr)
-install.packages("dplyr")
+#install.packages("dplyr")
 library(dplyr)
+
+
 ### UCI HAR Dataset
 # Set Working Directory
 # Can change this to your own
 #setwd("/Users/payplu/Downloads")
 #setwd("C:/Users/kelse/OneDrive/Documents/DAT511/R/UCI HAR Dataset/UCI HAR Dataset")
 
+# Set the path
+#path <- "UCI HAR Dataset"
+
 
 
 #1 Merging Training and Test Data
 
-# set the path
-#path <- "UCI HAR Dataset"
 
 train_x       <- read.table("train/X_train.txt")        # measurements
 train_y       <- read.table("train/y_train.txt")        # activity labels
@@ -78,7 +81,22 @@ names(cleaned_data) <- gsub("Gyro", "Gyroscope",    names(cleaned_data))
 names(cleaned_data) <- gsub("Mag",  "Magnitude",    names(cleaned_data))
 names(cleaned_data) <- gsub("BodyBody", "Body",     names(cleaned_data))
 
-# Remove extra symbols
+# Remove extra symbols and capitalize mean and std
 names(cleaned_data) <- gsub("-mean\\(\\)", "Mean", names(cleaned_data))
 names(cleaned_data) <- gsub("-std\\(\\)",  "STD",  names(cleaned_data))
 names(cleaned_data) <- gsub("[()\\-]", "", names(cleaned_data))
+
+
+# Create Tidy Data
+
+# Use the cleaned_data data frame to create Tidy Data
+# Get average of each variable for each activity and each subject.
+# Use group_by to group the data by each subject and activity combination
+
+tidy_data <- cleaned_data %>%
+  group_by(Subjects, Activities) %>%
+  summarize(
+    across(everything(), mean),
+    .groups = "drop"
+  )
+

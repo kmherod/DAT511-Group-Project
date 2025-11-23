@@ -19,7 +19,7 @@ In this study, volunteers performed different activities while wearing a sensor.
 the raw sensor data processed in a set shown over this data.
 
 
-our goal in this project is to:
+Our goal in this project is to:
 
 1. Merge the training and test dataset into one dataset.
 2. Extract the measurement

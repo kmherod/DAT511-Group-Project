@@ -35,7 +35,7 @@ How to set the working directory
 
 5. Open up your R Project script
 
-6. Use command setwd() to set your working directory. The file path you copied must be in quotes and all back slashes must be change to forward slashes.
+6. Use command setwd() to set your working directory. The file path you copied must be in quotes and all back slashes must be changed to forward slashes.
 
 7. Run your script to set the directory
 
@@ -86,17 +86,28 @@ Reflection Questions
 1. Why did we merge the training and test datasets? What was their original
     purpose, and why don't we need them separated for this project?
 
+   The training set is used to train and build predictive models. The test set is used to determine how well the predictive model performs.
+   The purpose of this project is to clean and organize data not build predicitive models so that is why the datasets were merged.
+
 2. How many observations did each subject contribute to the study?
    (HINT: Use table(data_combined$subject) to find out)
+
 
 3. Why did we select only mean() and std() features? What do these 
     statistics tell us about the data?
 
+   It's a large and complex dataset so simpler but informative calculations are better to work with. Standard deviation tells us how spread out the data is
+   and the mean provides the central tendency of the data.
+
  4. What does it mean for data to be "tidy"? How does our final tidy_data
    dataset follow tidy data principles?
 
+Tidy data is structured so the layout reflects the meaning of the data, with each variable in its own column and each observation in its own row.
+
  5. What is the interpretation of one row in the tidy_data dataset?
    What does a single value in one of the measurement columns represent?
+
+ One row is a single observation. And a column represents a single measurement to that observation.
 
 
 

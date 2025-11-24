@@ -42,21 +42,21 @@ How to set the working directory
 
 What each section of the script accomplishes
 
-# LIBRARIES - Includes the necessary packages and libraries needed for data cleaning and preparation.
+- LIBRARIES - Includes the necessary packages and libraries needed for data cleaning and preparation.
 
-# SET WORKING DIRECTORY - Sets the working directory so R knows where to read files from and where to save output in the same location.
+- SET WORKING DIRECTORY - Sets the working directory so R knows where to read files from and where to save output in the same location.
 
-# #1 MERGING TRAINING AND TEST DATA - Uploads relevant training and test datasets into R and combines them into one dataset.
+- #1 MERGING TRAINING AND TEST DATA - Uploads relevant training and test datasets into R and combines them into one dataset.
 
-# #2 EXTRACT RELEVANT MEASURES - Calculates the mean and standard deviations for each measurement.
+- #2 EXTRACT RELEVANT MEASURES - Calculates the mean and standard deviations for each measurement.
 
-# #3 DESCRIPTIVE ACTIVTY NAMES - Replaces an activity number with its associated activity name.
+- #3 DESCRIPTIVE ACTIVTY NAMES - Replaces an activity number with its associated activity name.
 
-# #4 LABEL DATA WITH DESCRIPTIVE NAMES - Cleans up variable names so they are easier to read.
+- #4 LABEL DATA WITH DESCRIPTIVE NAMES - Cleans up variable names so they are easier to read.
 
-# #5 CREATE TIDY DATA - Calculates average of each variable for each activity and each subject.
+- #5 CREATE TIDY DATA - Calculates average of each variable for each activity and each subject.
 
-# #6 SAVE THE TIDY DATA - Creates a text file for the tidy data dataset.
+- #6 SAVE THE TIDY DATA - Creates a text file for the tidy data dataset.
 
 
 

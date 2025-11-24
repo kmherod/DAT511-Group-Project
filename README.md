@@ -10,8 +10,8 @@ output: pdf_document
 How to download and extract the dataset
 
 Dataset: Human Activity Recognition Using Smartphones
-Source: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-Download: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones (source)
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip (download)
 
 1. Copy and paste the source link into your web browser to access the dataset. The link will lead you
 directly to the UC Irvine Machine Learning Repository web page for the Human Activity Recognition database.

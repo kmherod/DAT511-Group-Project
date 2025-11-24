@@ -7,14 +7,26 @@ output: pdf_document
 
 Data Overview: General information about the dataset, such as the source and purpose of the data.
 
+DATASET: Human Activity Recognition Using Smartphones
+Source: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+Download: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Variable Descriptions: Definitions for each variable or column in the dataset, including units and data types.
+The Human Activity Recognition (HAR) dataset was built from recordings of 30 subjects performing daily living activities wearing a smartphone (Samsung Galaxy S II) on the waist with inertial sensors. The dataset consists of 10,299 instances collected using the accelerometer and gyroscope of the smartphone. Each subject within an age bracket of 19-48 years performed six activities: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, and LAYING. Sensor signals were captured at 50Hz and video-recorded to manually label the activities. The data was then split into a training set containing 70% of subjects and a test set containing 30% of subjects.
 
-Missing Data Handling: Explanation of how missing values were handled in the dataset.
+The purpose of using this data is to demonstrate our groups ability to collect, work with, and clean a dataset. The goal is to prepare tidy data that can be used for further analysis. 
 
-Data Processing: Steps or code used to clean, transform, or manipulate the data.
+- Variable Descriptions: Definitions for each variable or column in the dataset, including units and data types.
 
-Code Instructions: Information on how to run the script and use the dataset.
 
-Analysis Description: Details of the analyses performed or planned.
+
+- Missing Data Handling: Explanation of how missing values were handled in the dataset.
+
+Applying the command sum(is.na(merged_data)) prior to cleaning the merged dataset revealed that there are no missing values.
+
+- Data Processing: Steps or code used to clean, transform, or manipulate the data.
+
+- Code Instructions: Information on how to run the script and use the dataset.
+
+- Analysis Description: Details of the analyses performed or planned.
+
 

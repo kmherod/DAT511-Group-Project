@@ -67,17 +67,36 @@ How to verify the results
 
 - SET WORKING DIRECTORY - Use command getwd() to confirm file path. Use command list.files() to verify folder contents.
 
-- #1 MERGING TRAINING AND TEST DATA - Use colnames(your_data)[1:5] to see the first five column names. Use summary(your_data[, 1:3]) to summarize the first 3 columns.
+- #1 MERGING TRAINING AND TEST DATA -  To verify that data sets merged correclty use colnames(your_data)[1:5] to see the first five column names and
+      summary(your_data[, 1:3]) to summarize the first 3 columns.
 
-- #2 EXTRACT RELEVANT MEASURES - 
+- #2 EXTRACT RELEVANT MEASURES - Use View(your_data) to verify applied calculations.
 
-- #3 DESCRIPTIVE ACTIVTY NAMES - 
+- #3 DESCRIPTIVE ACTIVTY NAMES - To verify activity numbers were replacec by activity labels use unique(your_data$activity) to list dataset activity names.
 
-- #4 LABEL DATA WITH DESCRIPTIVE NAMES - 
+- #4 LABEL DATA WITH DESCRIPTIVE NAMES - To verify that the variables names were cleaned up use colnames(your_data)[1:5] to see the first five column names.
 
 - #5 CREATE TIDY DATA - Use View(your_data) to verify grouping worked.
 
 - #6 SAVE THE TIDY DATA - To verify the file was saved use list.files(pattern = "your_data.txt").
+
+
+Reflection Questions
+
+1. Why did we merge the training and test datasets? What was their original
+    purpose, and why don't we need them separated for this project?
+
+2. How many observations did each subject contribute to the study?
+   (HINT: Use table(data_combined$subject) to find out)
+
+3. Why did we select only mean() and std() features? What do these 
+    statistics tell us about the data?
+
+ 4. What does it mean for data to be "tidy"? How does our final tidy_data
+   dataset follow tidy data principles?
+
+ 5. What is the interpretation of one row in the tidy_data dataset?
+   What does a single value in one of the measurement columns represent?
 
 
 

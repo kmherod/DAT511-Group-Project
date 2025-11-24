@@ -1,0 +1,20 @@
+---
+title: "CodeBook"
+author: "Kelsey Herod"
+date: "2025-11-24"
+output: pdf_document
+---
+
+Data Overview: General information about the dataset, such as the source and purpose of the data.
+
+
+Variable Descriptions: Definitions for each variable or column in the dataset, including units and data types.
+
+Missing Data Handling: Explanation of how missing values were handled in the dataset.
+
+Data Processing: Steps or code used to clean, transform, or manipulate the data.
+
+Code Instructions: Information on how to run the script and use the dataset.
+
+Analysis Description: Details of the analyses performed or planned.
+

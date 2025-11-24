@@ -90,8 +90,12 @@ Reflection Questions
    The purpose of this project is to clean and organize data not build predicitive models so that is why the datasets were merged.
 
 2. How many observations did each subject contribute to the study?
-   (HINT: Use table(data_combined$subject) to find out)
 
+  1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23 
+347 302 341 317 302 325 308 281 288 294 316 320 327 323 328 366 368 364 360 354 408 321 372 
+ 
+ 24  25  26  27  28  29  30 
+381 409 392 376 382 344 383 
 
 3. Why did we select only mean() and std() features? What do these 
     statistics tell us about the data?
@@ -102,12 +106,13 @@ Reflection Questions
  4. What does it mean for data to be "tidy"? How does our final tidy_data
    dataset follow tidy data principles?
 
-Tidy data is structured so the layout reflects the meaning of the data, with each variable in its own column and each observation in its own row.
+   Tidy data is structured so the layout reflects the meaning of the data, with each variable in its own column and each observation in its own row.
 
  5. What is the interpretation of one row in the tidy_data dataset?
    What does a single value in one of the measurement columns represent?
 
- One row is a single observation. And a column represents a single measurement to that observation.
+    One row in the tidy_data dataset represents one subject performing one activity, with each column containing the average value of a specific 
+    measurement for a subject and activity combination.
 
 
 

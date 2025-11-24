@@ -37,7 +37,9 @@ How to set the working directory
 
 6. Use command setwd() to set your working directory. The file path you copied must be in quotes and all back slashes must be change to forward slashes.
 
-7. Run your script to set the directory and use code getwd() to test if it worked.
+7. Run your script to set the directory
+
+8. Define the path to the UCI HAR Dataset folder by assigning "UCI HAR Dataset" to an appropriately named variable.
 
 
 What each section of the script accomplishes
@@ -57,6 +59,27 @@ What each section of the script accomplishes
 - #5 CREATE TIDY DATA - Calculates average of each variable for each activity and each subject.
 
 - #6 SAVE THE TIDY DATA - Creates a text file for the tidy data dataset.
+
+
+How to verify the results
+
+- LIBRARIES - Run command packageVersion() with package name to verify it loaded correctly.
+
+- SET WORKING DIRECTORY - Use command getwd() to confirm file path. Use command list.files() to verify folder contents.
+
+- #1 MERGING TRAINING AND TEST DATA - Use colnames(your_data)[1:5] to see the first five column names. Use summary(your_data[, 1:3]) to summarize the first 3 columns.
+
+- #2 EXTRACT RELEVANT MEASURES - 
+
+- #3 DESCRIPTIVE ACTIVTY NAMES - 
+
+- #4 LABEL DATA WITH DESCRIPTIVE NAMES - 
+
+- #5 CREATE TIDY DATA - Use View(your_data) to verify grouping worked.
+
+- #6 SAVE THE TIDY DATA - To verify the file was saved use list.files(pattern = "your_data.txt").
+
+
 
 
 

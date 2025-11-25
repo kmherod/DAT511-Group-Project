@@ -5,7 +5,7 @@ date: "2025-11-24"
 output: pdf_document
 ---
 
-Data Overview: General information about the dataset, such as the source and purpose of the data.
+Data Overview:
 
 DATASET: Human Activity Recognition Using Smartphones
 Source: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
@@ -20,19 +20,59 @@ manually label the activities. The data was then split into a training set conta
 The purpose of using this data is to demonstrate our groups ability to collect, work with, and clean a dataset. The goal is to prepare 
 tidy data that can be used for further analysis. 
 
-- Variable Descriptions: Definitions for each variable or column in the dataset, including units and data types.
+
+Variable Descriptions:
+
+Subjects — Volunteer ID (1–30)
+Activities — Performed activities ((WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+
+Features (Class: Numeric, Units: Hz, XYZ attached to each variable represents the 3-axial raw signals)
+TimeBodyAccelerationMeanXYZ
+TimeBodyAccelerationSTDXYZ
+TimeGravityAccelerationMeanXYZ
+TimeGravityAccelerationSTDXYZ
+TimeBodyAccelerationJerkMeanXYZ
+TimeBodyAccelerationJerkSTDXYZ
+TimeBodyGyroscopeMeanXYZ
+TimeBodyGyroscopeSTDXYZ
+TimeBodyGyroscopeJerkMeanXYZ
+TimeBodyGyroscopeJerkSTDXYZ
+TimeBodyAccelerationMagnitudeMean
+TimeBodyAccelerationMagnitudeSTD
+TimeGravityAccelerationMagnitudeMean
+TimeGravityAccelerationMagnitudeSTD
+TimeBodyAccelerationJerkMagnitudeMean
+TimeBodyAccelerationJerkMagnitudeSTD
+TimeBodyGyroscopeMagnitudeMean
+TimeBodyGyroscopeMagnitudeSTD
+TimeBodyGyroscopeJerkMagnitudeMean
+TimeBodyGyroscopeJerkMagnitudeSTD
+FrequencyBodyAccelerationMeanXYZ
+FrequencyBodyAccelerationSTDXYZ
+FrequencyBodyAccelerationJerkMeanXYZ
+FrequencyBodyAccelerationJerkSTDXYZ
+FrequencyBodyGyroscopeMeanXYZ
+FrequencyBodyGyroscopeSTDXYZ
+FrequencyBodyAccelerationMagnitudeMean
+FrequencyBodyAccelerationMagnitudeSTD
+FrequencyBodyAccelerationJerkMagnitudeMean
+FrequencyBodyAccelerationJerkMagnitudeSTD
+FrequencyBodyGyroscopeMagnitudeMean
+FrequencyBodyGyroscopeMagnitudeSTD
+FrequencyBodyGyroscopeJerkMagnitudeMean
+FrequencyBodyGyroscopeJerkMagnitudeSTD
 
 
-
-- Missing Data Handling: Explanation of how missing values were handled in the dataset.
+Missing Data Handling: Explanation of how missing values were handled in the dataset.
 
 Applying the command sum(is.na(merged_data)) prior to cleaning the merged dataset revealed that there are no missing values.
 
-- Data Processing: Steps or code used to clean, transform, or manipulate the data.
+Data Processing: Steps or code used to clean, transform, or manipulate the data.
 
-- Code Instructions: Information on how to run the script and use the dataset.
+Code Instructions: Information on how to run the script and use the dataset.
 
-- Analysis Description: Details of the analyses performed or planned.
+Analysis Description: Details of the analyses performed or planned.
+
 
 
 
